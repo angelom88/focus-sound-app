@@ -11,16 +11,31 @@ class FocusSound extends React.Component {
 
   render() {
     let mediaSrc = 'assets/media/' + this.props.name + '.mp3'
+    let audio;
+    if (this.props.autoPlay === 'true')  {
+      audio = 
+              <audio preload="none" controls loop autoPlay>
+                <source src={mediaSrc}/>
+              </audio>
+    } else {
+      audio = 
+              <audio preload="none" controls loop>
+                <source src={mediaSrc}/>
+              </audio>
+    }
+
     return (
         <div id={this.props.name}>
           <div className="wrapper">
-            <audio preload="none" controls loop autoPlay='true'>
-              <source src={mediaSrc}/>
-            </audio>
+            {audio}
           </div>
         </div>
     )
   }
+}
+
+FocusSound.defaultProps = {
+  autoPlay: 'true'
 }
 
 ReactDOM.render(
@@ -29,7 +44,7 @@ ReactDOM.render(
       <FocusSound name='waves'/>
       <FocusSound name='waves'/>
       <FocusSound name='rain'/>
-      <FocusSound name='birds'/>
+      <FocusSound name='birds' autoPlay='false'/>
     </div>,
-    document.getElementById('app')
+    document.querySelector('#app')
 )
