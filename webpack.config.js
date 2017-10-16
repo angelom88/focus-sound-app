@@ -9,13 +9,6 @@ const config = {
 	module: {
 		rules: [
 			{
-				test: /\.css$/,
-				use: [
-					{loader: 'css-loader'},
-					{loader: 'style-loader'}
-				]
-			},
-			{
 				test: /\.jsx$/,
 				exclude: /node_modules/,
 				use: {
@@ -24,7 +17,11 @@ const config = {
 						presets: ['react']
 					}
 				}
-			}
+			},
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader']
+			}			
 
 		]
 	}

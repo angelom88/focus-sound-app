@@ -13,7 +13,7 @@ class FocusSound extends Component {
     let mediaSrc = 'assets/media/' + this.props.name + '.mp3';
 
     return (
-        <div id={this.props.name}>
+        <div id={this.props.name} className="sound-wrapper">
           <div className="wrapper">
               <audio preload="none" controls loop autoPlay={this.props.startPlay === 'true'}>
                   <source src={mediaSrc} />
