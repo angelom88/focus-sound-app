@@ -32,7 +32,6 @@ ReactDOM.render(
     <div>
       <FocusSound name="fire" />
       <FocusSound name="waves" />
-      <FocusSound name="waves" />
       <FocusSound name="rain" />
       <FocusSound name="birds" startPlay="false" />
     </div>,
